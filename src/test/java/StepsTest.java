@@ -25,18 +25,18 @@ public class StepsTest {
     public void lambdaStepTest()  {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем главную страницу", () -> {
+        step("Открыть главную страницу", () -> {
             open("https://github.com");
         });
-        step("Ищем репозиторий " + REPOSITORY, () -> {
+        step("Искать репозиторий " + REPOSITORY, () -> {
 
             $(".header-search-button").click();
             $("#query-builder-test").setValue(REPOSITORY).submit();
         });
-        step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
+        step("Кликнуть по ссылке репозитория " + REPOSITORY, () -> {
             $(linkText(REPOSITORY)).click();
         });
-        step("Проверяем наличие Issues", () -> {
+        step("Проверить наличие Issues", () -> {
             $("#issues-tab").shouldHave(text("Issues"));
         });
 
@@ -50,6 +50,6 @@ public class StepsTest {
         steps.openMainPage();
         steps.searchForRepository(REPOSITORY);
         steps.clickOnRepositoryLink(REPOSITORY);
-        steps.SeeIssues();
+        steps.seeIssues();
     }
 }
